@@ -8,32 +8,68 @@
 
 body{
   margin:0;
-  font-family:Arial;
+  font-family: 'Poppins', sans-serif;
   background:black;
   color:white;
   text-align:center;
 }
 
-section{
+/* ---------- COVER HERO SECTION ---------- */
+
+.hero {
   height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('YOUR_IMAGE_HERE.jpg'); /* Replace with your photo */
+  background-size:cover;
+  background-position:center;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
 }
 
+.hero-content{
+  background:rgba(20,20,20,0.8);
+  padding:40px;
+  border-radius:20px;
+  max-width:400px;
+}
+
+.hero h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:16px;
+  margin-bottom:20px;
+}
+
 button{
   padding:15px 25px;
-  font-size:18px;
+  font-size:16px;
   border:none;
   border-radius:20px;
+  background:#ff4d6d;
+  color:white;
   cursor:pointer;
+}
+
+/* ---------- PIE CHART ---------- */
+
+section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
 }
 
 .pie{
   position:relative;
-  width:300px;
-  height:300px;
+  width:320px;
+  height:320px;
   border-radius:50%;
   overflow:hidden;
 }
@@ -48,14 +84,14 @@ button{
 
 .slice span{
   position:absolute;
-  color:white;
   font-size:14px;
+  font-weight:bold;
 }
 
 .center{
   position:absolute;
-  width:120px;
-  height:120px;
+  width:130px;
+  height:130px;
   background:#111;
   border-radius:50%;
   top:50%;
@@ -64,7 +100,21 @@ button{
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:16px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* ---------- DESTINATION SECTIONS ---------- */
+
+.destination{
+  background:#111;
+  border-radius:20px;
+  padding:30px;
+  max-width:500px;
+}
+
+.destination h2{
+  color:#ff4d6d;
 }
 
 </style>
@@ -72,12 +122,19 @@ button{
 
 <body>
 
-<section>
-<h1>Take Your Pick ❤️</h1>
-<button onclick="scrollToPie()">Start Exploring</button>
+<!-- COVER PAGE -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Take Your Pick ❤️</h1>
+    <p>Where should our story begin?</p>
+    <button onclick="scrollToPie()">Start Exploring</button>
+  </div>
 </section>
 
+<!-- PIE CHART -->
 <section id="pieSection">
+
+<h2>Choose Our Destination</h2>
 
 <div class="pie">
 
@@ -111,44 +168,58 @@ button{
 
 </section>
 
+<!-- DESTINATIONS -->
+
 <section id="thailand">
+<div class="destination">
 <h2>Thailand</h2>
 <p>Beaches, sunsets and adventure together.</p>
+</div>
 </section>
 
 <section id="georgia">
+<div class="destination">
 <h2>Georgia</h2>
 <p>Snow mountains and cozy European vibes.</p>
+</div>
 </section>
 
 <section id="bali">
+<div class="destination">
 <h2>Bali</h2>
 <p>Private villa romance and jungle beauty.</p>
+</div>
 </section>
 
 <section id="vietnam">
+<div class="destination">
 <h2>Vietnam</h2>
 <p>Lantern nights and scenic adventures.</p>
+</div>
 </section>
 
 <section id="srilanka">
+<div class="destination">
 <h2>Sri Lanka</h2>
 <p>Peaceful beaches and train journeys.</p>
+</div>
 </section>
 
 <section id="azerbaijan">
+<div class="destination">
 <h2>Azerbaijan</h2>
 <p>European style love story and mountains.</p>
+</div>
 </section>
 
 <script>
 
 function scrollToPie(){
- document.getElementById("pieSection").scrollIntoView({behavior:"smooth"});
+  document.getElementById("pieSection").scrollIntoView({behavior:"smooth"});
 }
 
 function go(id){
- document.getElementById(id).scrollIntoView({behavior:"smooth"});
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
 </script>
