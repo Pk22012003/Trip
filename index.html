@@ -59,7 +59,7 @@ section{ padding:60px 20px; }
   position:relative;
   width:320px;
   height:320px;
-  margin:60px auto; /* fixes overlap with heading */
+  margin:70px auto;
   border-radius:50%;
   overflow:hidden;
 }
@@ -79,14 +79,14 @@ section{ padding:60px 20px; }
   justify-content:center;
   align-items:center;
   clip-path:polygon(50% 50%, 100% 0, 100% 50%);
-  transition:0.2s ease;
+  transition:0.25s ease;
 }
 
 .circle-menu button:hover{
   filter:brightness(1.15);
 }
 
-/* Slice rotations */
+/* Slice colors + rotation */
 
 .b1{ background:#ff7675; transform:rotate(0deg); }
 .b2{ background:#74b9ff; transform:rotate(60deg); }
@@ -95,18 +95,27 @@ section{ padding:60px 20px; }
 .b5{ background:#a29bfe; transform:rotate(240deg); }
 .b6{ background:#fd79a8; transform:rotate(300deg); }
 
-/* Text inside slice */
+/* TEXT POSITIONING */
 
 .circle-menu button span{
   position:absolute;
-  width:120px;
+  width:110px;
+  left:60%;
+  top:50%;
+  transform-origin:left center;
   text-align:center;
-  top:45%;
-  left:63%;
-  transform:rotate(-60deg);
   text-shadow:0 0 6px rgba(0,0,0,0.8);
   pointer-events:none;
 }
+
+/* Counter rotate text so it stays horizontal */
+
+.b1 span{ transform:rotate(0deg); }
+.b2 span{ transform:rotate(-60deg); }
+.b3 span{ transform:rotate(-120deg); }
+.b4 span{ transform:rotate(-180deg); }
+.b5 span{ transform:rotate(-240deg); }
+.b6 span{ transform:rotate(-300deg); }
 
 /* Center circle */
 
