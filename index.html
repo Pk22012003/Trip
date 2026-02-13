@@ -18,13 +18,13 @@ body{
   scroll-behavior:smooth;
 }
 
-/* ---------- HERO ---------- */
+/* HERO */
 
 .hero{
   height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(20,0,20,0.7)),
-    url('cover.jpg');
+    url('./Cover.jpg');
   background-size:cover;
   background-position:center;
   display:flex;
@@ -43,18 +43,15 @@ body{
 
 .hero h1{
   font-size:36px;
-  margin-bottom:10px;
 }
 
 .hero p{
-  font-size:17px;
-  margin-bottom:25px;
   color:#ddd;
+  margin-bottom:25px;
 }
 
 button{
   padding:15px 30px;
-  font-size:16px;
   border:none;
   border-radius:25px;
   background:linear-gradient(45deg,#ff4d6d,#ff758f);
@@ -68,7 +65,7 @@ button:hover{
   box-shadow:0 0 20px #ff4d6d;
 }
 
-/* ---------- SECTION ---------- */
+/* SECTIONS */
 
 section{
   min-height:100vh;
@@ -79,7 +76,7 @@ section{
   padding:40px 20px;
 }
 
-/* ---------- PIE CHART ---------- */
+/* PIE */
 
 .pie{
   position:relative;
@@ -94,25 +91,26 @@ section{
     #a29bfe 240deg 300deg,
     #fd79a8 300deg 360deg
   );
-  cursor:pointer;
   animation:float 6s infinite ease-in-out;
-  transition:0.3s;
 }
 
-.pie:hover{
-  box-shadow:0 0 30px rgba(255,105,135,0.4);
-}
-
-.pie-label{
+.pie span{
   position:absolute;
-  width:50%;
-  height:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  left:50%;
+  top:50%;
+  transform-origin:0 0;
   font-weight:600;
   color:black;
 }
+
+/* label radial positions */
+
+.t1{ transform:rotate(30deg) translate(120px) rotate(-30deg); }
+.t2{ transform:rotate(90deg) translate(120px) rotate(-90deg); }
+.t3{ transform:rotate(150deg) translate(120px) rotate(-150deg); }
+.t4{ transform:rotate(210deg) translate(120px) rotate(-210deg); }
+.t5{ transform:rotate(270deg) translate(120px) rotate(-270deg); }
+.t6{ transform:rotate(330deg) translate(120px) rotate(-330deg); }
 
 .center{
   position:absolute;
@@ -126,11 +124,10 @@ section{
   display:flex;
   justify-content:center;
   align-items:center;
-  font-size:18px;
   font-weight:600;
 }
 
-/* ---------- DESTINATION ---------- */
+/* DESTINATIONS */
 
 .destination{
   background:rgba(30,30,30,0.7);
@@ -145,7 +142,7 @@ section{
   color:#ff758f;
 }
 
-/* ---------- ANIMATION ---------- */
+/* ANIMATION */
 
 @keyframes fadeIn{
   from{opacity:0; transform:translateY(30px);}
@@ -153,9 +150,9 @@ section{
 }
 
 @keyframes float{
-  0%{ transform:translateY(0px); }
-  50%{ transform:translateY(-10px); }
-  100%{ transform:translateY(0px); }
+  0%{ transform:translateY(0px);}
+  50%{ transform:translateY(-10px);}
+  100%{ transform:translateY(0px);}
 }
 
 </style>
@@ -163,7 +160,6 @@ section{
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Take Your Pick ❤️</h1>
@@ -172,19 +168,18 @@ section{
   </div>
 </section>
 
-<!-- PIE -->
 <section id="pieSection">
 
 <h2>Choose Our Destination</h2>
 
 <div class="pie" onclick="pieClick(event)">
 
-<div class="pie-label" style="transform: rotate(30deg) translate(90px) rotate(-30deg);">Thailand</div>
-<div class="pie-label" style="transform: rotate(90deg) translate(90px) rotate(-90deg);">Georgia</div>
-<div class="pie-label" style="transform: rotate(150deg) translate(90px) rotate(-150deg);">Bali</div>
-<div class="pie-label" style="transform: rotate(210deg) translate(90px) rotate(-210deg);">Vietnam</div>
-<div class="pie-label" style="transform: rotate(270deg) translate(90px) rotate(-270deg);">Sri Lanka</div>
-<div class="pie-label" style="transform: rotate(330deg) translate(90px) rotate(-330deg);">Azerbaijan</div>
+<span class="t1">Thailand</span>
+<span class="t2">Georgia</span>
+<span class="t3">Bali</span>
+<span class="t4">Vietnam</span>
+<span class="t5">Sri Lanka</span>
+<span class="t6">Azerbaijan</span>
 
 <div class="center">Your Choice ❤️</div>
 
@@ -194,47 +189,17 @@ section{
 
 <!-- DESTINATIONS -->
 
-<section id="thailand">
-<div class="destination">
-<h2>Thailand</h2>
-<p>Beaches, sunsets and adventure together.</p>
-</div>
-</section>
+<section id="thailand"><div class="destination"><h2>Thailand</h2><p>Beaches, sunsets and adventure together.</p></div></section>
 
-<section id="georgia">
-<div class="destination">
-<h2>Georgia</h2>
-<p>Snow mountains and cozy European vibes.</p>
-</div>
-</section>
+<section id="georgia"><div class="destination"><h2>Georgia</h2><p>Snow mountains and cozy European vibes.</p></div></section>
 
-<section id="bali">
-<div class="destination">
-<h2>Bali</h2>
-<p>Private villa romance and jungle beauty.</p>
-</div>
-</section>
+<section id="bali"><div class="destination"><h2>Bali</h2><p>Private villa romance and jungle beauty.</p></div></section>
 
-<section id="vietnam">
-<div class="destination">
-<h2>Vietnam</h2>
-<p>Lantern nights and scenic adventures.</p>
-</div>
-</section>
+<section id="vietnam"><div class="destination"><h2>Vietnam</h2><p>Lantern nights and scenic adventures.</p></div></section>
 
-<section id="srilanka">
-<div class="destination">
-<h2>Sri Lanka</h2>
-<p>Peaceful beaches and train journeys.</p>
-</div>
-</section>
+<section id="srilanka"><div class="destination"><h2>Sri Lanka</h2><p>Peaceful beaches and train journeys.</p></div></section>
 
-<section id="azerbaijan">
-<div class="destination">
-<h2>Azerbaijan</h2>
-<p>European style love story and mountains.</p>
-</div>
-</section>
+<section id="azerbaijan"><div class="destination"><h2>Azerbaijan</h2><p>European style love story and mountains.</p></div></section>
 
 <script>
 
@@ -246,24 +211,20 @@ function go(id){
   document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-/* --- PIE CLICK DETECTION --- */
-
 function pieClick(event){
-
   const rect = event.currentTarget.getBoundingClientRect();
   const x = event.clientX - rect.left - rect.width/2;
   const y = event.clientY - rect.top - rect.height/2;
 
-  let angle = Math.atan2(y,x) * 180/Math.PI;
-  if(angle < 0) angle += 360;
+  let angle = Math.atan2(y,x)*180/Math.PI;
+  if(angle<0) angle+=360;
 
-  if(angle < 60) go('thailand');
-  else if(angle < 120) go('georgia');
-  else if(angle < 180) go('bali');
-  else if(angle < 240) go('vietnam');
-  else if(angle < 300) go('srilanka');
+  if(angle<60) go('thailand');
+  else if(angle<120) go('georgia');
+  else if(angle<180) go('bali');
+  else if(angle<240) go('vietnam');
+  else if(angle<300) go('srilanka');
   else go('azerbaijan');
-
 }
 
 </script>
