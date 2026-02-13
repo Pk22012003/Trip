@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Take Your Pick ❤️</title>
 
+<link rel="preload" as="image" href="cover.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -52,6 +53,7 @@ section{
   margin:40px auto;
   border-radius:50%;
   overflow:hidden;
+  transition:1.2s ease-out; /* added spin animation */
 }
 
 .circle-menu button{
@@ -102,6 +104,11 @@ section{
   max-width:800px;
   margin:40px auto;
   text-align:left;
+  transition:0.6s; /* glow animation */
+}
+
+.destination:target{
+  box-shadow:0 0 30px #ff758f;
 }
 
 .destination h2{
@@ -118,15 +125,45 @@ section{
   padding:10px 0;
   scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
+  scroll-snap-type:x mandatory; /* added */
 }
 
 .gallery img{
   height:200px;
   border-radius:15px;
+  min-width:250px; /* mobile improvement */
+  scroll-snap-align:center;
 }
 
 .gallery::-webkit-scrollbar{
   display:none;
+}
+
+/* CONFETTI */
+
+.confetti{
+  position:fixed;
+  width:10px;
+  height:10px;
+  top:0;
+  animation:fall 3s linear forwards;
+  z-index:999;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(100vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+/* LOVE SECTION */
+
+.love{
+  max-width:600px;
+  margin:60px auto;
+  font-size:18px;
+  opacity:0.9;
 }
 
 </style>
@@ -147,13 +184,13 @@ section{
 <section id="pieSection">
 <h2>Choose Our Destination</h2>
 
-<div class="circle-menu">
-<button class="b1" onclick="go('thailand')">Thailand</button>
-<button class="b2" onclick="go('georgia')">Georgia</button>
-<button class="b3" onclick="go('bali')">Bali</button>
-<button class="b4" onclick="go('vietnam')">Vietnam</button>
-<button class="b5" onclick="go('srilanka')">Sri Lanka</button>
-<button class="b6" onclick="go('azerbaijan')">Azerbaijan</button>
+<div class="circle-menu" id="wheel">
+<button class="b1" aria-label="Thailand" onclick="go('thailand')">Thailand</button>
+<button class="b2" aria-label="Georgia" onclick="go('georgia')">Georgia</button>
+<button class="b3" aria-label="Bali" onclick="go('bali')">Bali</button>
+<button class="b4" aria-label="Vietnam" onclick="go('vietnam')">Vietnam</button>
+<button class="b5" aria-label="Sri Lanka" onclick="go('srilanka')">Sri Lanka</button>
+<button class="b6" aria-label="Azerbaijan" onclick="go('azerbaijan')">Azerbaijan</button>
 
 <div class="circle-center">Your Choice ❤️</div>
 </div>
@@ -161,6 +198,9 @@ section{
 
 <!-- ================= DESTINATIONS ================= -->
 
+<!-- 🔴 YOUR ENTIRE ITINERARY IS KEPT EXACTLY AS YOU SENT -->
+
+<!-- Thailand -->
 <section id="thailand">
 <div class="destination">
 <h2>Thailand 🇹🇭</h2>
@@ -189,154 +229,160 @@ section{
 </div>
 </section>
 
+<!-- Georgia -->
 <section id="georgia">
 <div class="destination">
 <h2>Georgia 🇬🇪</h2>
-
 <div class="gallery">
 <img src="https://images.unsplash.com/photo-1608138403987-6b35c50a7611?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1577086664693-894d8405334a?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1600530995155-0a5b29e76e21?auto=format&fit=crop&w=900&q=80">
 </div>
-
 <p><strong>Flights:</strong> ₹35k – ₹45k Delhi | ₹20k – ₹30k Dubai</p>
 <p><strong>Hotels:</strong> ₹3k – ₹7k per night</p>
-
 <h3>Day 1 – Tbilisi Old Town</h3>
 <p>Explore cobblestone streets and fortress sunset.</p>
-
 <h3>Day 2 – Mountain Escape</h3>
 <p>Kazbegi mountains scenic road trip.</p>
-
 <h3>Day 3 – Wine & Culture</h3>
 <p>Kakheti wine tasting and spa.</p>
-
 <h3>Day 4 – Café Date</h3>
 <p>Breakfast and departure.</p>
-
 </div>
 </section>
 
+<!-- Bali -->
 <section id="bali">
 <div class="destination">
 <h2>Bali 🇮🇩</h2>
-
 <div class="gallery">
 <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
 </div>
-
 <p><strong>Flights:</strong> ₹25k – ₹55k Delhi | ₹35k – ₹85k Dubai</p>
 <p><strong>Hotels:</strong> ₹4k – ₹12k per night</p>
-
 <h3>Day 1 – Private Villa Romance</h3>
 <p>Private pool villa and beach club dinner.</p>
-
 <h3>Day 2 – Nusa Penida Trip</h3>
 <p>Kelingking beach and boat adventure.</p>
-
 <h3>Day 3 – Jungle Adventure</h3>
 <p>Ubud waterfalls and spa.</p>
-
 <h3>Day 4 – Floating Breakfast</h3>
 <p>Relaxation and departure.</p>
-
 </div>
 </section>
 
+<!-- Vietnam -->
 <section id="vietnam">
 <div class="destination">
 <h2>Vietnam 🇻🇳</h2>
-
 <div class="gallery">
 <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80">
 </div>
-
 <p><strong>Flights:</strong> ₹20k – ₹35k Delhi | ₹18k – ₹30k Dubai</p>
 <p><strong>Hotels:</strong> ₹1.5k – ₹5k per night</p>
-
 <h3>Day 1 – Café Culture</h3>
 <p>Street food and city walk.</p>
-
 <h3>Day 2 – Ha Long Bay Cruise</h3>
 <p>Kayaking and sunset dinner.</p>
-
 <h3>Day 3 – Lantern Night</h3>
 <p>Hoi An river boat ride.</p>
-
 <h3>Day 4 – Brunch & Departure</h3>
 <p>Relaxed brunch.</p>
-
 </div>
 </section>
 
+<!-- Sri Lanka -->
 <section id="srilanka">
 <div class="destination">
 <h2>Sri Lanka 🇱🇰</h2>
-
 <div class="gallery">
 <img src="https://images.unsplash.com/photo-1544739313-3baf0d87f58a?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1555992336-03a23c6c3c4f?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1570727062227-6e1e8c7a7f19?auto=format&fit=crop&w=900&q=80">
 </div>
-
 <p><strong>Flights:</strong> ₹18k – ₹25k Delhi | ₹18k – ₹30k Dubai</p>
 <p><strong>Hotels:</strong> ₹1.5k – ₹5k per night</p>
-
 <h3>Day 1 – Beach Stay</h3>
 <p>Bentota beach relaxation.</p>
-
 <h3>Day 2 – Scenic Train Ride</h3>
 <p>Ella train and Nine Arch Bridge.</p>
-
 <h3>Day 3 – Tea Hills</h3>
 <p>Plantation visit and hike.</p>
-
 <h3>Day 4 – Ocean Breakfast</h3>
 <p>Morning coffee and departure.</p>
-
 </div>
 </section>
 
+<!-- Azerbaijan -->
 <section id="azerbaijan">
 <div class="destination">
 <h2>Azerbaijan 🇦🇿</h2>
-
 <div class="gallery">
 <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1603105070188-4e7c50a62ddb?auto=format&fit=crop&w=900&q=80">
 <img src="https://images.unsplash.com/photo-1616609478632-9e66f56c6c4a?auto=format&fit=crop&w=900&q=80">
 </div>
-
 <p><strong>Flights:</strong> ₹30k – ₹45k Delhi | ₹18k – ₹30k Dubai</p>
 <p><strong>Hotels:</strong> ₹3k – ₹8k per night</p>
-
 <h3>Day 1 – Baku Romance</h3>
 <p>Old city walk and promenade sunset.</p>
-
 <h3>Day 2 – Mountain Escape</h3>
 <p>Gabala cable car trip.</p>
-
 <h3>Day 3 – Cultural Night</h3>
 <p>Flame Towers and rooftop dinner.</p>
-
 <h3>Day 4 – Farewell Café</h3>
 <p>Breakfast and airport transfer.</p>
-
 </div>
 </section>
 
+<!-- Love Section -->
+<section class="love">
+<h2>Why This Trip Matters ❤️</h2>
+<p>Every place here is just an excuse. The real destination is wherever we go together.</p>
+</section>
+
+<audio id="clickSound">
+<source src="https://assets.mixkit.co/sfx/preview/mixkit-game-click-1114.mp3">
+</audio>
+
 <script>
+
 function scrollToPie(){
   document.getElementById("pieSection").scrollIntoView({behavior:"smooth"});
 }
 
 function go(id){
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+
+  const wheel = document.getElementById("wheel");
+  const sound = document.getElementById("clickSound");
+
+  sound.play();
+
+  wheel.style.transform =
+    "rotate(" + (Math.random()*720 + 720) + "deg)";
+
+  createConfetti();
+
+  setTimeout(()=>{
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
+  },1200);
 }
+
+function createConfetti(){
+  for(let i=0;i<25;i++){
+    const c=document.createElement("div");
+    c.classList.add("confetti");
+    c.style.left=Math.random()*100+"vw";
+    c.style.background="hsl("+Math.random()*360+",100%,50%)";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
+
 </script>
 
 </body>
