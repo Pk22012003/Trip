@@ -3,7 +3,6 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Take Your Pick ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
@@ -19,7 +18,7 @@ body{
   scroll-behavior:smooth;
 }
 
-/* ---------- HERO SECTION ---------- */
+/* ---------- HERO ---------- */
 
 .hero{
   height:100vh;
@@ -45,7 +44,6 @@ body{
 .hero h1{
   font-size:36px;
   margin-bottom:10px;
-  font-weight:600;
 }
 
 .hero p{
@@ -70,7 +68,7 @@ button:hover{
   box-shadow:0 0 20px #ff4d6d;
 }
 
-/* ---------- SECTION GENERAL ---------- */
+/* ---------- SECTION ---------- */
 
 section{
   min-height:100vh;
@@ -88,27 +86,30 @@ section{
   width:320px;
   height:320px;
   border-radius:50%;
-  overflow:hidden;
-  animation:float 6s infinite ease-in-out;
-}
-
-.slice{
-  position:absolute;
-  width:50%;
-  height:50%;
-  transform-origin:100% 100%;
+  background:conic-gradient(
+    #ff7675 0deg 60deg,
+    #74b9ff 60deg 120deg,
+    #55efc4 120deg 180deg,
+    #ffeaa7 180deg 240deg,
+    #a29bfe 240deg 300deg,
+    #fd79a8 300deg 360deg
+  );
   cursor:pointer;
+  animation:float 6s infinite ease-in-out;
   transition:0.3s;
 }
 
-.slice:hover{
-  filter:brightness(1.2);
-  transform:scale(1.05);
+.pie:hover{
+  box-shadow:0 0 30px rgba(255,105,135,0.4);
 }
 
-.slice span{
+.pie-label{
   position:absolute;
-  font-size:14px;
+  width:50%;
+  height:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   font-weight:600;
   color:black;
 }
@@ -129,7 +130,7 @@ section{
   font-weight:600;
 }
 
-/* ---------- DESTINATION CARDS ---------- */
+/* ---------- DESTINATION ---------- */
 
 .destination{
   background:rgba(30,30,30,0.7);
@@ -142,20 +143,13 @@ section{
 
 .destination h2{
   color:#ff758f;
-  margin-bottom:15px;
 }
 
-/* ---------- ANIMATIONS ---------- */
+/* ---------- ANIMATION ---------- */
 
 @keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 @keyframes float{
@@ -165,7 +159,6 @@ section{
 }
 
 </style>
-
 </head>
 
 <body>
@@ -184,31 +177,14 @@ section{
 
 <h2>Choose Our Destination</h2>
 
-<div class="pie">
+<div class="pie" onclick="pieClick(event)">
 
-<div class="slice" style="background:#ff7675; transform:rotate(0deg) skewY(-30deg);" onclick="go('thailand')">
-<span style="transform:skewY(30deg) rotate(15deg);">Thailand</span>
-</div>
-
-<div class="slice" style="background:#74b9ff; transform:rotate(60deg) skewY(-30deg);" onclick="go('georgia')">
-<span style="transform:skewY(30deg) rotate(15deg);">Georgia</span>
-</div>
-
-<div class="slice" style="background:#55efc4; transform:rotate(120deg) skewY(-30deg);" onclick="go('bali')">
-<span style="transform:skewY(30deg) rotate(15deg);">Bali</span>
-</div>
-
-<div class="slice" style="background:#ffeaa7; transform:rotate(180deg) skewY(-30deg);" onclick="go('vietnam')">
-<span style="transform:skewY(30deg) rotate(15deg);">Vietnam</span>
-</div>
-
-<div class="slice" style="background:#a29bfe; transform:rotate(240deg) skewY(-30deg);" onclick="go('srilanka')">
-<span style="transform:skewY(30deg) rotate(15deg);">Sri Lanka</span>
-</div>
-
-<div class="slice" style="background:#fd79a8; transform:rotate(300deg) skewY(-30deg);" onclick="go('azerbaijan')">
-<span style="transform:skewY(30deg) rotate(15deg);">Azerbaijan</span>
-</div>
+<div class="pie-label" style="transform: rotate(30deg) translate(90px) rotate(-30deg);">Thailand</div>
+<div class="pie-label" style="transform: rotate(90deg) translate(90px) rotate(-90deg);">Georgia</div>
+<div class="pie-label" style="transform: rotate(150deg) translate(90px) rotate(-150deg);">Bali</div>
+<div class="pie-label" style="transform: rotate(210deg) translate(90px) rotate(-210deg);">Vietnam</div>
+<div class="pie-label" style="transform: rotate(270deg) translate(90px) rotate(-270deg);">Sri Lanka</div>
+<div class="pie-label" style="transform: rotate(330deg) translate(90px) rotate(-330deg);">Azerbaijan</div>
 
 <div class="center">Your Choice ❤️</div>
 
@@ -268,6 +244,26 @@ function scrollToPie(){
 
 function go(id){
   document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* --- PIE CLICK DETECTION --- */
+
+function pieClick(event){
+
+  const rect = event.currentTarget.getBoundingClientRect();
+  const x = event.clientX - rect.left - rect.width/2;
+  const y = event.clientY - rect.top - rect.height/2;
+
+  let angle = Math.atan2(y,x) * 180/Math.PI;
+  if(angle < 0) angle += 360;
+
+  if(angle < 60) go('thailand');
+  else if(angle < 120) go('georgia');
+  else if(angle < 180) go('bali');
+  else if(angle < 240) go('vietnam');
+  else if(angle < 300) go('srilanka');
+  else go('azerbaijan');
+
 }
 
 </script>
