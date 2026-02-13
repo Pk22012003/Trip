@@ -55,38 +55,46 @@ section{ padding:60px 20px; }
 /* ===== PIZZA WHEEL ======= */
 /* ========================= */
 
+/* ========================= */
+/* ===== PIZZA WHEEL ======= */
+/* ========================= */
+
 .circle-menu{
   position:relative;
   width:320px;
   height:320px;
   margin:70px auto;
   border-radius:50%;
-  overflow:hidden;
 }
 
-/* Slice buttons */
+/* SLICE BUTTON */
 
 .circle-menu button{
   position:absolute;
-  width:100%;
-  height:100%;
+  width:50%;
+  height:50%;
+  top:50%;
+  left:50%;
+  transform-origin:0% 0%;
   border:none;
   cursor:pointer;
   color:white;
   font-weight:600;
-  font-size:15px;
+  font-size:14px;
   display:flex;
-  justify-content:center;
   align-items:center;
-  clip-path:polygon(50% 50%, 100% 0, 100% 50%);
-  transition:0.25s ease;
+  justify-content:center;
+  clip-path:polygon(0 0,100% 0,100% 100%);
+  padding-left:30px;
+  transition:0.3s ease;
 }
 
 .circle-menu button:hover{
   filter:brightness(1.15);
+  z-index:5;
 }
 
-/* Slice colors + rotation */
+/* SLICE COLORS + ROTATION */
 
 .b1{ background:#ff7675; transform:rotate(0deg); }
 .b2{ background:#74b9ff; transform:rotate(60deg); }
@@ -95,30 +103,17 @@ section{ padding:60px 20px; }
 .b5{ background:#a29bfe; transform:rotate(240deg); }
 .b6{ background:#fd79a8; transform:rotate(300deg); }
 
-/* TEXT POSITIONING */
+/* TEXT FIX */
 
 .circle-menu button span{
-  position:absolute;
-  width:140px;
-  left:50%;
-  top:50%;
-  transform-origin:center;
-  transform:translate(-10%, -50%);
+  transform:rotate(-60deg);
+  width:110px;
   text-align:center;
-  text-shadow:0 0 8px rgba(0,0,0,0.9);
+  text-shadow:0 0 6px rgba(0,0,0,0.9);
   pointer-events:none;
 }
 
-/* Counter rotate text so it stays horizontal */
-
-.b1 span{ transform:translate(-10%, -50%) rotate(0deg); }
-.b2 span{ transform:translate(-10%, -50%) rotate(-60deg); }
-.b3 span{ transform:translate(-10%, -50%) rotate(-120deg); }
-.b4 span{ transform:translate(-10%, -50%) rotate(-180deg); }
-.b5 span{ transform:translate(-10%, -50%) rotate(-240deg); }
-.b6 span{ transform:translate(-10%, -50%) rotate(-300deg); }
-
-/* Center circle */
+/* CENTER CIRCLE */
 
 .circle-center{
   position:absolute;
