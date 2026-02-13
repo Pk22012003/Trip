@@ -16,20 +16,16 @@ body{
   color:white;
   text-align:center;
   scroll-behavior:smooth;
-
   background:
     linear-gradient(rgba(0,0,0,0.65), rgba(20,0,20,0.75)),
     url('cover.jpg');
-
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
 }
 
 @media (max-width:768px){
-  body{
-    background-attachment:scroll;
-  }
+  body{ background-attachment:scroll; }
 }
 
 .hero{
@@ -51,15 +47,24 @@ body{
   margin:40px auto;
 }
 
-.hero-content{
-  max-width:420px;
+.hero-content{ max-width:420px; }
+
+section{ padding:60px 20px; }
+
+/* ========================= */
+/* ===== PIZZA WHEEL ======= */
+/* ========================= */
+
+.circle-menu{
+  position:relative;
+  width:320px;
+  height:320px;
+  margin:60px auto; /* fixes overlap with heading */
+  border-radius:50%;
+  overflow:hidden;
 }
 
-section{
-  padding:60px 20px;
-}
-
-/* ===== PIZZA STYLE WHEEL ===== */
+/* Slice buttons */
 
 .circle-menu button{
   position:absolute;
@@ -74,17 +79,15 @@ section{
   justify-content:center;
   align-items:center;
   clip-path:polygon(50% 50%, 100% 0, 100% 50%);
+  transition:0.2s ease;
 }
 
-.circle-menu button span{
-  position:absolute;
-  top:38%;
-  left:65%;
-  transform:rotate(-60deg);
-  width:110px;
-  text-align:center;
-  text-shadow:0 0 6px rgba(0,0,0,0.8);
+.circle-menu button:hover{
+  filter:brightness(1.15);
 }
+
+/* Slice rotations */
+
 .b1{ background:#ff7675; transform:rotate(0deg); }
 .b2{ background:#74b9ff; transform:rotate(60deg); }
 .b3{ background:#55efc4; transform:rotate(120deg); }
@@ -92,9 +95,20 @@ section{
 .b5{ background:#a29bfe; transform:rotate(240deg); }
 .b6{ background:#fd79a8; transform:rotate(300deg); }
 
+/* Text inside slice */
+
 .circle-menu button span{
-  transform:rotate(-30deg);
+  position:absolute;
+  width:120px;
+  text-align:center;
+  top:45%;
+  left:63%;
+  transform:rotate(-60deg);
+  text-shadow:0 0 6px rgba(0,0,0,0.8);
+  pointer-events:none;
 }
+
+/* Center circle */
 
 .circle-center{
   position:absolute;
