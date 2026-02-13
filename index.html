@@ -24,7 +24,7 @@ body{
   height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(20,0,20,0.7)),
-    url('./images/Cover.jpg');
+    url('./images/cover.jpg'); /* MUST match filename exactly */
   background-size:cover;
   background-position:center;
   display:flex;
@@ -92,7 +92,7 @@ section{
   display:flex;
   justify-content:center;
   align-items:center;
-  pointer-events:none;
+  pointer-events:none; /* critical fix */
 }
 
 /* DESTINATION */
@@ -119,6 +119,7 @@ section{
   gap:15px;
   padding:10px 0;
   scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch; /* iOS swipe fix */
 }
 
 .gallery img{
@@ -151,13 +152,13 @@ section{
 <h2>Choose Our Destination</h2>
 
 <div class="pie" onclick="pieClick(event)">
-<span class="t1">Thailand</span>
-<span class="t2">Georgia</span>
-<span class="t3">Bali</span>
-<span class="t4">Vietnam</span>
-<span class="t5">Sri Lanka</span>
-<span class="t6">Azerbaijan</span>
-<div class="center">Your Choice ❤️</div>
+  <span class="t1">Thailand</span>
+  <span class="t2">Georgia</span>
+  <span class="t3">Bali</span>
+  <span class="t4">Vietnam</span>
+  <span class="t5">Sri Lanka</span>
+  <span class="t6">Azerbaijan</span>
+  <div class="center">Your Choice ❤️</div>
 </div>
 </section>
 
@@ -165,17 +166,12 @@ section{
 <section id="thailand">
 <div class="destination">
 <h2>Thailand 🇹🇭</h2>
-
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-<img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8">
-<img src="https://images.unsplash.com/photo-1528184039930-bd03972bd974">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800">
+<img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800">
+<img src="https://images.unsplash.com/photo-1528184039930-bd03972bd974?w=800">
 </div>
-
-<p><strong>Perfect for:</strong> Beaches + Adventure + Night markets</p>
-
-<p>Sunset beach walks, island hopping, couple spa and romantic seaside dinners.</p>
-
+<p>Beaches, island hopping, spa dates and seaside dinners.</p>
 </div>
 </section>
 
@@ -183,17 +179,12 @@ section{
 <section id="georgia">
 <div class="destination">
 <h2>Georgia 🇬🇪</h2>
-
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1608138403987-6b35c50a7611">
-<img src="https://images.unsplash.com/photo-1577086664693-894d8405334a">
-<img src="https://images.unsplash.com/photo-1600530995155-0a5b29e76e21">
+<img src="https://images.unsplash.com/photo-1608138403987-6b35c50a7611?w=800">
+<img src="https://images.unsplash.com/photo-1577086664693-894d8405334a?w=800">
+<img src="https://images.unsplash.com/photo-1600530995155-0a5b29e76e21?w=800">
 </div>
-
-<p><strong>Perfect for:</strong> Mountains + European vibes + Wine tours</p>
-
-<p>Old town romance, snowy mountains, wine tastings and cozy cafés.</p>
-
+<p>Mountains, old town walks, wine tours and cozy cafés.</p>
 </div>
 </section>
 
@@ -201,17 +192,12 @@ section{
 <section id="bali">
 <div class="destination">
 <h2>Bali 🇮🇩</h2>
-
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4">
-<img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800">
+<img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=800">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800">
 </div>
-
-<p><strong>Perfect for:</strong> Villas + Luxury romance + Nature</p>
-
-<p>Private pool villas, jungle waterfalls, beach clubs and floating breakfasts.</p>
-
+<p>Private villas, jungle waterfalls and floating breakfasts.</p>
 </div>
 </section>
 
@@ -219,17 +205,12 @@ section{
 <section id="vietnam">
 <div class="destination">
 <h2>Vietnam 🇻🇳</h2>
-
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe">
-<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5">
-<img src="https://images.unsplash.com/photo-1528127269322-539801943592">
+<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800">
+<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800">
+<img src="https://images.unsplash.com/photo-1528127269322-539801943592?w=800">
 </div>
-
-<p><strong>Perfect for:</strong> Culture + Scenic cruises + Food exploration</p>
-
-<p>Ha Long Bay cruises, lantern nights and street food dates.</p>
-
+<p>Ha Long Bay cruises, lantern nights and food adventures.</p>
 </div>
 </section>
 
@@ -237,17 +218,12 @@ section{
 <section id="srilanka">
 <div class="destination">
 <h2>Sri Lanka 🇱🇰</h2>
-
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1544739313-3baf0d87f58a">
-<img src="https://images.unsplash.com/photo-1555992336-03a23c6c3c4f">
-<img src="https://images.unsplash.com/photo-1570727062227-6e1e8c7a7f19">
+<img src="https://images.unsplash.com/photo-1544739313-3baf0d87f58a?w=800">
+<img src="https://images.unsplash.com/photo-1555992336-03a23c6c3c4f?w=800">
+<img src="https://images.unsplash.com/photo-1570727062227-6e1e8c7a7f19?w=800">
 </div>
-
-<p><strong>Perfect for:</strong> Scenic trains + Tea hills + Beaches</p>
-
-<p>Train journeys, peaceful beaches and mountain hikes.</p>
-
+<p>Scenic trains, tea hills and peaceful beaches.</p>
 </div>
 </section>
 
@@ -255,17 +231,12 @@ section{
 <section id="azerbaijan">
 <div class="destination">
 <h2>Azerbaijan 🇦🇿</h2>
-
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1596436889106-be35e843f974">
-<img src="https://images.unsplash.com/photo-1603105070188-4e7c50a62ddb">
-<img src="https://images.unsplash.com/photo-1616609478632-9e66f56c6c4a">
+<img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=800">
+<img src="https://images.unsplash.com/photo-1603105070188-4e7c50a62ddb?w=800">
+<img src="https://images.unsplash.com/photo-1616609478632-9e66f56c6c4a?w=800">
 </div>
-
-<p><strong>Perfect for:</strong> European city romance + Mountains + Architecture</p>
-
-<p>Baku skyline walks, cable car rides and rooftop dinners.</p>
-
+<p>Baku old city, mountains and romantic skyline walks.</p>
 </div>
 </section>
 
@@ -285,13 +256,13 @@ function pieClick(event){
   const y = event.clientY - rect.top - rect.height/2;
 
   let angle = Math.atan2(y,x)*180/Math.PI;
-  if(angle<0) angle+=360;
+  if(angle < 0) angle += 360;
 
-  if(angle<60) go('thailand');
-  else if(angle<120) go('georgia');
-  else if(angle<180) go('bali');
-  else if(angle<240) go('vietnam');
-  else if(angle<300) go('srilanka');
+  if(angle < 60) go('thailand');
+  else if(angle < 120) go('georgia');
+  else if(angle < 180) go('bali');
+  else if(angle < 240) go('vietnam');
+  else if(angle < 300) go('srilanka');
   else go('azerbaijan');
 }
 
