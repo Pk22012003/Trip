@@ -24,7 +24,7 @@ body{
   height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(20,0,20,0.7)),
-    url('./images/cover.jpg'); /* MUST match filename exactly */
+    url('./images/cover.jpg');
   background-size:cover;
   background-position:center;
   display:flex;
@@ -39,49 +39,48 @@ body{
   max-width:420px;
 }
 
-/* SECTION */
-
 section{
   padding:60px 20px;
 }
 
-/* PIE */
+/* ===== Circular Destination Wheel ===== */
 
-.pie{
+.circle-menu{
   position:relative;
   width:320px;
   height:320px;
-  margin:auto;
+  margin:40px auto;
   border-radius:50%;
-  background:conic-gradient(
-    #ff7675 0deg 60deg,
-    #74b9ff 60deg 120deg,
-    #55efc4 120deg 180deg,
-    #ffeaa7 180deg 240deg,
-    #a29bfe 240deg 300deg,
-    #fd79a8 300deg 360deg
-  );
-  cursor:pointer;
+  overflow:hidden;
 }
-.t1{ transform:rotate(30deg) translate(95px) rotate(-30deg); }
-.t2{ transform:rotate(90deg) translate(95px) rotate(-90deg); }
-.t3{ transform:rotate(150deg) translate(95px) rotate(-150deg); }
-.t4{ transform:rotate(210deg) translate(95px) rotate(-210deg); }
-.t5{ transform:rotate(270deg) translate(95px) rotate(-270deg); }
-.t6{ transform:rotate(330deg) translate(95px) rotate(-330deg); }
 
-.pie span{
+.circle-menu button{
   position:absolute;
-  left:50%;
-  top:50%;
-  transform-origin:0 0;
-  font-size:13px;
-  white-space:nowrap;
+  width:100%;
+  height:100%;
+  border:none;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  font-size:14px;
+  transition:0.3s;
 }
-.center{
+
+.circle-menu button:hover{
+  filter:brightness(1.2);
+}
+
+.b1{ background:#ff7675; clip-path:polygon(50% 50%, 100% 0, 100% 50%); }
+.b2{ background:#74b9ff; clip-path:polygon(50% 50%, 100% 50%, 100% 100%); }
+.b3{ background:#55efc4; clip-path:polygon(50% 50%, 100% 100%, 50% 100%); }
+.b4{ background:#ffeaa7; clip-path:polygon(50% 50%, 50% 100%, 0 100%); }
+.b5{ background:#a29bfe; clip-path:polygon(50% 50%, 0 100%, 0 50%); }
+.b6{ background:#fd79a8; clip-path:polygon(50% 50%, 0 50%, 0 0); }
+
+.circle-center{
   position:absolute;
-  width:130px;
-  height:130px;
+  width:120px;
+  height:120px;
   background:#111;
   border-radius:50%;
   top:50%;
@@ -90,7 +89,8 @@ section{
   display:flex;
   justify-content:center;
   align-items:center;
-  pointer-events:none; /* critical fix */
+  font-weight:600;
+  z-index:10;
 }
 
 /* DESTINATION */
@@ -117,14 +117,12 @@ section{
   gap:15px;
   padding:10px 0;
   scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch; /* iOS swipe fix */
+  -webkit-overflow-scrolling:touch;
 }
 
 .gallery img{
   height:200px;
-  width:auto;
   border-radius:15px;
-  flex-shrink:0;
 }
 
 .gallery::-webkit-scrollbar{
@@ -136,7 +134,6 @@ section{
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Take Your Pick ❤️</h1>
@@ -145,188 +142,28 @@ section{
   </div>
 </section>
 
-<!-- PIE -->
 <section id="pieSection">
 <h2>Choose Our Destination</h2>
 
-<div class="pie" onclick="pieClick(event)">
-  <span class="t1">Thailand</span>
-  <span class="t2">Georgia</span>
-  <span class="t3">Bali</span>
-  <span class="t4">Vietnam</span>
-  <span class="t5">Sri Lanka</span>
-  <span class="t6">Azerbaijan</span>
-  <div class="center">Your Choice ❤️</div>
-</div>
-</section>
+<div class="circle-menu">
 
-<section id="thailand">
-<div class="destination">
-<h2>Thailand 🇹🇭</h2>
+<button class="b1" onclick="go('thailand')">Thailand</button>
+<button class="b2" onclick="go('georgia')">Georgia</button>
+<button class="b3" onclick="go('bali')">Bali</button>
+<button class="b4" onclick="go('vietnam')">Vietnam</button>
+<button class="b5" onclick="go('srilanka')">Sri Lanka</button>
+<button class="b6" onclick="go('azerbaijan')">Azerbaijan</button>
 
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1528184039930-bd03972bd974?auto=format&fit=crop&w=900&q=80">
-</div>
-
-<p><strong>Flights:</strong> ₹12k – ₹28k Delhi | ₹18k – ₹35k Dubai</p>
-<p><strong>Hotels:</strong> ₹2k – ₹6k per night</p>
-
-<h3>Day 1 – Arrival & Beach Romance</h3>
-<p>Reach Phuket or Krabi, hotel check-in, sunset beach walk and Thai seafood dinner.</p>
-
-<h3>Day 2 – Island Adventure</h3>
-<p>Phi Phi island boat tour, snorkelling, turquoise water photos and island lunch.</p>
-
-<h3>Day 3 – Couple Relaxation</h3>
-<p>Traditional Thai couple spa, explore Old Town markets and candlelight dinner.</p>
-
-<h3>Day 4 – Slow Goodbye</h3>
-<p>Morning coffee by the beach, souvenir shopping and departure.</p>
+<div class="circle-center">Your Choice ❤️</div>
 
 </div>
 </section>
 
-<section id="georgia">
-<div class="destination">
-<h2>Georgia 🇬🇪</h2>
+<!-- KEEP ALL YOUR DESTINATION SECTIONS EXACTLY SAME BELOW -->
 
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1608138403987-6b35c50a7611?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1577086664693-894d8405334a?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1600530995155-0a5b29e76e21?auto=format&fit=crop&w=900&q=80">
-</div>
+<!-- (I am not rewriting them because yours are already correct) -->
 
-<p><strong>Flights:</strong> ₹35k – ₹45k Delhi | ₹20k – ₹30k Dubai</p>
-<p><strong>Hotels:</strong> ₹3k – ₹7k per night</p>
-
-<h3>Day 1 – Tbilisi Old Town</h3>
-<p>Explore cobblestone streets, cable car to Narikala Fortress and rooftop dinner.</p>
-
-<h3>Day 2 – Mountain Escape</h3>
-<p>Drive to Kazbegi mountains, Gergeti church viewpoint and scenic photo stops.</p>
-
-<h3>Day 3 – Wine & Culture</h3>
-<p>Kakheti wine tasting, sulfur bath spa and romantic evening walk.</p>
-
-<h3>Day 4 – Café Date</h3>
-<p>European style breakfast café and departure.</p>
-
-</div>
-</section>
-
-<section id="bali">
-<div class="destination">
-<h2>Bali 🇮🇩</h2>
-
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
-</div>
-
-<p><strong>Flights:</strong> ₹25k – ₹55k Delhi | ₹35k – ₹85k Dubai</p>
-<p><strong>Hotels/Villas:</strong> ₹4k – ₹12k per night</p>
-
-<h3>Day 1 – Private Villa Romance</h3>
-<p>Check-in pool villa, sunset beach club and candlelight dinner.</p>
-
-<h3>Day 2 – Island Exploration</h3>
-<p>Nusa Penida boat trip, Kelingking beach viewpoint and beach café.</p>
-
-<h3>Day 3 – Jungle Adventure</h3>
-<p>Ubud waterfalls, jungle swing and couple spa.</p>
-
-<h3>Day 4 – Floating Breakfast</h3>
-<p>Floating breakfast, pool relaxation and departure.</p>
-
-</div>
-</section>
-
-<section id="vietnam">
-<div class="destination">
-<h2>Vietnam 🇻🇳</h2>
-
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=900&q=80">
-</div>
-
-<p><strong>Flights:</strong> ₹20k – ₹35k Delhi | ₹18k – ₹30k Dubai</p>
-<p><strong>Hotels:</strong> ₹1.5k – ₹5k per night</p>
-
-<h3>Day 1 – Café Culture</h3>
-<p>Explore Hanoi/Ho Chi Minh cafés, street food date and city walk.</p>
-
-<h3>Day 2 – Ha Long Bay Cruise</h3>
-<p>Kayaking, cave exploration and sunset cruise dinner.</p>
-
-<h3>Day 3 – Lantern Night</h3>
-<p>Hoi An lantern festival, river boat ride and market shopping.</p>
-
-<h3>Day 4 – Brunch & Departure</h3>
-<p>Relaxed brunch before airport transfer.</p>
-
-</div>
-</section>
-
-<section id="srilanka">
-<div class="destination">
-<h2>Sri Lanka 🇱🇰</h2>
-
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1544739313-3baf0d87f58a?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1555992336-03a23c6c3c4f?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1570727062227-6e1e8c7a7f19?auto=format&fit=crop&w=900&q=80">
-</div>
-
-<p><strong>Flights:</strong> ₹18k – ₹25k Delhi | ₹18k – ₹30k Dubai</p>
-<p><strong>Hotels:</strong> ₹1.5k – ₹5k per night</p>
-
-<h3>Day 1 – Beach Resort Stay</h3>
-<p>Bentota beach relaxation and seafood dinner.</p>
-
-<h3>Day 2 – Scenic Train Ride</h3>
-<p>Ella train journey and Nine Arch Bridge photography.</p>
-
-<h3>Day 3 – Tea Hills Adventure</h3>
-<p>Tea plantation tour and Little Adam’s Peak hike.</p>
-
-<h3>Day 4 – Ocean Breakfast</h3>
-<p>Morning beach coffee and departure.</p>
-
-</div>
-</section>
-
-<section id="azerbaijan">
-<div class="destination">
-<h2>Azerbaijan 🇦🇿</h2>
-
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1603105070188-4e7c50a62ddb?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1616609478632-9e66f56c6c4a?auto=format&fit=crop&w=900&q=80">
-</div>
-
-<p><strong>Flights:</strong> ₹30k – ₹45k Delhi | ₹18k – ₹30k Dubai</p>
-<p><strong>Hotels:</strong> ₹3k – ₹8k per night</p>
-
-<h3>Day 1 – Baku Romance</h3>
-<p>Old city walk and Caspian Sea sunset promenade.</p>
-
-<h3>Day 2 – Mountain Escape</h3>
-<p>Gabala cable car and countryside cafés.</p>
-
-<h3>Day 3 – Cultural Night</h3>
-<p>Flame Towers light show and rooftop dinner.</p>
-
-<h3>Day 4 – Farewell Café</h3>
-<p>Breakfast date and airport transfer.</p>
-
-</div>
-</section>
+<script>
 
 function scrollToPie(){
   document.getElementById("pieSection").scrollIntoView({behavior:"smooth"});
@@ -334,22 +171,6 @@ function scrollToPie(){
 
 function go(id){
   document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-
-function pieClick(event){
-  const rect = event.currentTarget.getBoundingClientRect();
-  const x = event.clientX - rect.left - rect.width/2;
-  const y = event.clientY - rect.top - rect.height/2;
-
-  let angle = Math.atan2(y,x)*180/Math.PI;
-  if(angle < 0) angle += 360;
-
-  if(angle < 60) go('thailand');
-  else if(angle < 120) go('georgia');
-  else if(angle < 180) go('bali');
-  else if(angle < 240) go('vietnam');
-  else if(angle < 300) go('srilanka');
-  else go('azerbaijan');
 }
 
 </script>
