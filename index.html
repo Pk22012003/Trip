@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Take Your Pick ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -24,7 +24,7 @@ body{
   height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(20,0,20,0.7)),
-    url('./Cover.jpg');
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
   background-size:cover;
   background-position:center;
   display:flex;
@@ -33,7 +33,7 @@ body{
 }
 
 .hero-content{
-  background:rgba(30,30,30,0.7);
+  background:rgba(30,30,30,0.75);
   backdrop-filter:blur(10px);
   padding:40px;
   border-radius:20px;
@@ -43,6 +43,7 @@ body{
 
 .hero h1{
   font-size:36px;
+  margin-bottom:10px;
 }
 
 .hero p{
@@ -65,7 +66,7 @@ button:hover{
   box-shadow:0 0 20px #ff4d6d;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
   min-height:100vh;
@@ -92,6 +93,7 @@ section{
     #fd79a8 300deg 360deg
   );
   animation:float 6s infinite ease-in-out;
+  cursor:pointer;
 }
 
 .pie span{
@@ -102,8 +104,6 @@ section{
   font-weight:600;
   color:black;
 }
-
-/* label radial positions */
 
 .t1{ transform:rotate(30deg) translate(120px) rotate(-30deg); }
 .t2{ transform:rotate(90deg) translate(120px) rotate(-90deg); }
@@ -127,19 +127,52 @@ section{
   font-weight:600;
 }
 
-/* DESTINATIONS */
+/* DESTINATION */
 
 .destination{
-  background:rgba(30,30,30,0.7);
+  background:rgba(30,30,30,0.75);
   backdrop-filter:blur(10px);
   border-radius:20px;
   padding:30px;
-  max-width:500px;
+  max-width:700px;
   animation:fadeIn 1s ease;
+  text-align:left;
 }
 
 .destination h2{
   color:#ff758f;
+  text-align:center;
+}
+
+.destination h3{
+  color:#ffb3c1;
+}
+
+.destination p{
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* SWIPE GALLERY */
+
+.gallery{
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  scroll-snap-type:x mandatory;
+  margin:20px 0;
+}
+
+.gallery img{
+  width:100%;
+  max-width:300px;
+  border-radius:15px;
+  scroll-snap-align:center;
+  flex-shrink:0;
+}
+
+.gallery::-webkit-scrollbar{
+  display:none;
 }
 
 /* ANIMATION */
@@ -169,37 +202,67 @@ section{
 </section>
 
 <section id="pieSection">
-
 <h2>Choose Our Destination</h2>
 
 <div class="pie" onclick="pieClick(event)">
-
 <span class="t1">Thailand</span>
 <span class="t2">Georgia</span>
 <span class="t3">Bali</span>
 <span class="t4">Vietnam</span>
 <span class="t5">Sri Lanka</span>
 <span class="t6">Azerbaijan</span>
-
 <div class="center">Your Choice ❤️</div>
-
 </div>
-
 </section>
 
-<!-- DESTINATIONS -->
+<!-- THAILAND -->
+<section id="thailand">
+<div class="destination">
+<h2>Thailand 🇹🇭</h2>
 
-<section id="thailand"><div class="destination"><h2>Thailand</h2><p>Beaches, sunsets and adventure together.</p></div></section>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8">
+<img src="https://images.unsplash.com/photo-1528184039930-bd03972bd974">
+</div>
 
-<section id="georgia"><div class="destination"><h2>Georgia</h2><p>Snow mountains and cozy European vibes.</p></div></section>
+<p><strong>Flights:</strong> ₹15K–₹25K India | ₹18K–₹30K Dubai</p>
+<h3>Day 1 – Beach Arrival</h3>
+<p>Sunset beach walk & Thai dinner.</p>
+<h3>Day 2 – Island Adventure</h3>
+<p>Phi Phi snorkeling & boat tour.</p>
+<h3>Day 3 – Relaxation</h3>
+<p>Couple spa & candlelight dinner.</p>
+<h3>Day 4 – Departure</h3>
+<p>Coffee before flight.</p>
 
-<section id="bali"><div class="destination"><h2>Bali</h2><p>Private villa romance and jungle beauty.</p></div></section>
+</div>
+</section>
 
-<section id="vietnam"><div class="destination"><h2>Vietnam</h2><p>Lantern nights and scenic adventures.</p></div></section>
+<!-- Repeat similar structure for other destinations -->
 
-<section id="srilanka"><div class="destination"><h2>Sri Lanka</h2><p>Peaceful beaches and train journeys.</p></div></section>
+<section id="georgia">
+<div class="destination">
+<h2>Georgia 🇬🇪</h2>
 
-<section id="azerbaijan"><div class="destination"><h2>Azerbaijan</h2><p>European style love story and mountains.</p></div></section>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1608138403987-6b35c50a7611">
+<img src="https://images.unsplash.com/photo-1577086664693-894d8405334a">
+<img src="https://images.unsplash.com/photo-1600530995155-0a5b29e76e21">
+</div>
+
+<p><strong>Flights:</strong> ₹25K–₹35K India | ₹20K–₹30K Dubai</p>
+<h3>Day 1 – Tbilisi Old Town</h3>
+<p>Historic street walks and cafés.</p>
+<h3>Day 2 – Mountains</h3>
+<p>Kazbegi scenic trip.</p>
+<h3>Day 3 – Wine & Culture</h3>
+<p>Kakheti wine tasting and spa.</p>
+<h3>Day 4 – Departure</h3>
+<p>Relaxed breakfast date.</p>
+
+</div>
+</section>
 
 <script>
 
