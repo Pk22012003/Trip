@@ -17,7 +17,6 @@ body{
   text-align:center;
   scroll-behavior:smooth;
 
-  /* FULL SITE BACKGROUND */
   background:
     linear-gradient(rgba(0,0,0,0.65), rgba(20,0,20,0.75)),
     url('cover.jpg');
@@ -27,7 +26,11 @@ body{
   background-attachment:fixed;
 }
 
-/* HERO */
+@media (max-width:768px){
+  body{
+    background-attachment:scroll;
+  }
+}
 
 .hero{
   height:100vh;
@@ -35,8 +38,6 @@ body{
   justify-content:center;
   align-items:center;
 }
-
-/* TRANSLUCENT BLOCKS */
 
 .hero-content,
 .destination,
@@ -58,7 +59,7 @@ section{
   padding:60px 20px;
 }
 
-/* ===== Circular Destination Wheel ===== */
+/* ===== PIZZA STYLE WHEEL ===== */
 
 .circle-menu{
   position:relative;
@@ -66,81 +67,44 @@ section{
   height:320px;
   margin:40px auto;
   border-radius:50%;
-  transition:1.2s ease-out;
-
-  /* 6 MULTI-COLOUR SEGMENTS */
-  background: conic-gradient(
-    #ff7675 0deg 60deg,
-    #74b9ff 60deg 120deg,
-    #55efc4 120deg 180deg,
-    #ffeaa7 180deg 240deg,
-    #a29bfe 240deg 300deg,
-    #fd79a8 300deg 360deg
-  );
-
-  padding:35px;
-  box-sizing:border-box;
-
-  /* DEPTH */
-  box-shadow:
-    inset 0 0 25px rgba(0,0,0,0.7),
-    0 10px 25px rgba(0,0,0,0.5);
+  overflow:hidden;
 }
 
-/* INNER RING HOLE */
-
-.circle-menu::before{
-  content:"";
-  position:absolute;
-  inset:35px;
-  background:#111;
-  border-radius:50%;
-  z-index:1;
-}
-
-/* SEGMENT DIVIDER LINES */
-
-.circle-menu::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:50%;
-  background:
-    repeating-conic-gradient(
-      transparent 0deg 58deg,
-      rgba(255,255,255,0.5) 58deg 60deg
-    );
-  pointer-events:none;
-}
-
-/* BUTTONS */
+/* Each slice */
 
 .circle-menu button{
   position:absolute;
-  width:50%;
-  height:50%;
-  top:50%;
-  left:50%;
-  transform-origin:0% 0%;
+  width:100%;
+  height:100%;
   border:none;
-  background:transparent;
+  cursor:pointer;
   color:white;
   font-weight:600;
-  cursor:pointer;
   font-size:14px;
-  z-index:5;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 20px;
+  clip-path:polygon(50% 50%, 100% 0, 100% 50%);
 }
 
-/* ROTATE BUTTONS INTO SEGMENTS */
+/* 6 slices rotated */
 
-.b1{ transform:rotate(0deg); }
-.b2{ transform:rotate(60deg); }
-.b3{ transform:rotate(120deg); }
-.b4{ transform:rotate(180deg); }
-.b5{ transform:rotate(240deg); }
-.b6{ transform:rotate(300deg); }
+.b1{ background:#ff7675; transform:rotate(0deg); }
+.b2{ background:#74b9ff; transform:rotate(60deg); }
+.b3{ background:#55efc4; transform:rotate(120deg); }
+.b4{ background:#ffeaa7; transform:rotate(180deg); }
+.b5{ background:#a29bfe; transform:rotate(240deg); }
+.b6{ background:#fd79a8; transform:rotate(300deg); }
 
-/* CENTER DIAL */
+/* Fix text rotation so readable */
+
+.circle-menu button span{
+  transform:rotate(-30deg);
+}
+
+/* Center circle */
 
 .circle-center{
   position:absolute;
@@ -156,7 +120,6 @@ section{
   align-items:center;
   font-weight:600;
   z-index:10;
-  box-shadow:0 0 15px rgba(0,0,0,0.6);
 }
 
 /* DESTINATION */
@@ -183,51 +146,28 @@ section{
   gap:15px;
   padding:10px 0;
   scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
-  scroll-snap-type:x mandatory;
 }
 
 .gallery img{
   height:200px;
   border-radius:15px;
   min-width:250px;
-  scroll-snap-align:center;
 }
 
 .gallery::-webkit-scrollbar{
   display:none;
 }
 
-/* CONFETTI */
-
-.confetti{
-  position:fixed;
-  width:10px;
-  height:10px;
-  top:0;
-  animation:fall 3s linear forwards;
-  z-index:999;
-}
-
-@keyframes fall{
-  to{
-    transform:translateY(100vh) rotate(720deg);
-    opacity:0;
-  }
-}
-
-/* LOVE SECTION */
-
 .love{
   font-size:18px;
   opacity:0.95;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Take Your Pick ❤️</h1>
@@ -236,22 +176,23 @@ section{
   </div>
 </section>
 
-<!-- DESTINATION WHEEL -->
 <section id="pieSection">
 <h2>Choose Our Destination</h2>
 
-<div class="circle-menu" id="wheel">
-<button class="b1" aria-label="Thailand" onclick="go('thailand')">Thailand</button>
-<button class="b2" aria-label="Georgia" onclick="go('georgia')">Georgia</button>
-<button class="b3" aria-label="Bali" onclick="go('bali')">Bali</button>
-<button class="b4" aria-label="Vietnam" onclick="go('vietnam')">Vietnam</button>
-<button class="b5" aria-label="Sri Lanka" onclick="go('srilanka')">Sri Lanka</button>
-<button class="b6" aria-label="Azerbaijan" onclick="go('azerbaijan')">Azerbaijan</button>
+<div class="circle-menu">
+
+<button class="b1" onclick="go('thailand')"><span>Thailand</span></button>
+<button class="b2" onclick="go('georgia')"><span>Georgia</span></button>
+<button class="b3" onclick="go('bali')"><span>Bali</span></button>
+<button class="b4" onclick="go('vietnam')"><span>Vietnam</span></button>
+<button class="b5" onclick="go('srilanka')"><span>Sri Lanka</span></button>
+<button class="b6" onclick="go('azerbaijan')"><span>Azerbaijan</span></button>
 
 <div class="circle-center">Your Choice ❤️</div>
 </div>
 </section>
 
+<!-- ALL YOUR DESTINATION SECTIONS REMAIN EXACTLY THE SAME BELOW -->
 <!-- ================= DESTINATIONS ================= -->
 
 <!-- 🔴 YOUR ENTIRE ITINERARY IS KEPT EXACTLY AS YOU SENT -->
