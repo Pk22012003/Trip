@@ -61,15 +61,6 @@ section{
 
 /* ===== PIZZA STYLE WHEEL ===== */
 
-.circle-menu{
-  position:relative;
-  width:320px;
-  height:320px;
-  margin:40px auto;
-  border-radius:50%;
-  overflow:hidden;
-}
-
 .circle-menu button{
   position:absolute;
   width:100%;
@@ -78,15 +69,22 @@ section{
   cursor:pointer;
   color:white;
   font-weight:600;
-  font-size:14px;
-  text-align:center;
+  font-size:15px;
   display:flex;
-  align-items:center;
   justify-content:center;
-  padding:0 20px;
+  align-items:center;
   clip-path:polygon(50% 50%, 100% 0, 100% 50%);
 }
 
+.circle-menu button span{
+  position:absolute;
+  top:38%;
+  left:65%;
+  transform:rotate(-60deg);
+  width:110px;
+  text-align:center;
+  text-shadow:0 0 6px rgba(0,0,0,0.8);
+}
 .b1{ background:#ff7675; transform:rotate(0deg); }
 .b2{ background:#74b9ff; transform:rotate(60deg); }
 .b3{ background:#55efc4; transform:rotate(120deg); }
@@ -303,9 +301,9 @@ section{
 <h2>Sri Lanka 🇱🇰</h2>
 
 <div class="gallery">
-<img src="https://images.unsplash.com/photo-1544739313-3baf0d87f58a?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1555992336-03a23c6c3c4f?auto=format&fit=crop&w=900&q=80">
-<img src="https://images.unsplash.com/photo-1570727062227-6e1e8c7a7f19?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1588598198321-9735b3a90c89?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1566296314736-6eaac1ca0cb9?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=900&q=80">
 </div>
 
 <p><strong>Flights:</strong> ₹18k – ₹25k Delhi | ₹18k – ₹30k Dubai</p>
