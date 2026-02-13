@@ -13,30 +13,45 @@
 body{
   margin:0;
   font-family:'Poppins', sans-serif;
-  background:black;
   color:white;
   text-align:center;
   scroll-behavior:smooth;
+
+  /* FULL SITE BACKGROUND */
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(20,0,20,0.75)),
+    url('cover.jpg');
+
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed; /* makes background stationary */
 }
 
 /* HERO */
 
 .hero{
   height:100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(20,0,20,0.7)),
-    url('cover.jpg');
-  background-size:cover;
-  background-position:center;
   display:flex;
   justify-content:center;
   align-items:center;
 }
 
-.hero-content{
+/* TRANSLUCENT BLOCK STYLE (Applied Everywhere Needed) */
+
+.hero-content,
+.destination,
+.love,
+#pieSection{
   background:rgba(30,30,30,0.75);
+  backdrop-filter:blur(8px);
   padding:40px;
   border-radius:20px;
+  max-width:850px;
+  margin:40px auto;
+}
+
+/* Keep hero max width smaller */
+.hero-content{
   max-width:420px;
 }
 
@@ -53,7 +68,7 @@ section{
   margin:40px auto;
   border-radius:50%;
   overflow:hidden;
-  transition:1.2s ease-out; /* added spin animation */
+  transition:1.2s ease-out;
 }
 
 .circle-menu button{
@@ -98,13 +113,8 @@ section{
 /* DESTINATION */
 
 .destination{
-  background:rgba(30,30,30,0.8);
-  border-radius:20px;
-  padding:30px;
-  max-width:800px;
-  margin:40px auto;
   text-align:left;
-  transition:0.6s; /* glow animation */
+  transition:0.6s;
 }
 
 .destination:target{
@@ -125,13 +135,13 @@ section{
   padding:10px 0;
   scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
-  scroll-snap-type:x mandatory; /* added */
+  scroll-snap-type:x mandatory;
 }
 
 .gallery img{
   height:200px;
   border-radius:15px;
-  min-width:250px; /* mobile improvement */
+  min-width:250px;
   scroll-snap-align:center;
 }
 
@@ -160,10 +170,8 @@ section{
 /* LOVE SECTION */
 
 .love{
-  max-width:600px;
-  margin:60px auto;
   font-size:18px;
-  opacity:0.9;
+  opacity:0.95;
 }
 
 </style>
