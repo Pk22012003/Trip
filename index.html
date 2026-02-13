@@ -24,7 +24,7 @@ body{
   height:100vh;
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(20,0,20,0.7)),
-    url('./images/Cover.jpg.jpg');
+    url('./images/Cover.jpg');
   background-size:cover;
   background-position:center;
   display:flex;
@@ -34,31 +34,15 @@ body{
 
 .hero-content{
   background:rgba(30,30,30,0.75);
-  backdrop-filter:blur(10px);
   padding:40px;
   border-radius:20px;
   max-width:420px;
-  animation:fadeIn 1.5s ease;
-}
-
-button{
-  padding:15px 30px;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(45deg,#ff4d6d,#ff758f);
-  color:white;
-  cursor:pointer;
 }
 
 /* SECTION */
 
 section{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding:40px 20px;
+  padding:60px 20px;
 }
 
 /* PIE */
@@ -67,6 +51,7 @@ section{
   position:relative;
   width:320px;
   height:320px;
+  margin:auto;
   border-radius:50%;
   background:conic-gradient(
     #ff7675 0deg 60deg,
@@ -107,16 +92,17 @@ section{
   display:flex;
   justify-content:center;
   align-items:center;
+  pointer-events:none;
 }
 
 /* DESTINATION */
 
 .destination{
-  background:rgba(30,30,30,0.75);
-  backdrop-filter:blur(10px);
+  background:rgba(30,30,30,0.8);
   border-radius:20px;
   padding:30px;
-  max-width:700px;
+  max-width:800px;
+  margin:40px auto;
   text-align:left;
 }
 
@@ -125,21 +111,21 @@ section{
   text-align:center;
 }
 
-/* SWIPE GALLERY */
+/* GALLERY */
 
 .gallery{
   display:flex;
   overflow-x:auto;
   gap:15px;
-  scroll-snap-type:x mandatory;
-  margin:20px 0;
+  padding:10px 0;
+  scroll-behavior:smooth;
 }
 
 .gallery img{
-  width:100%;
-  max-width:300px;
+  height:200px;
+  width:auto;
   border-radius:15px;
-  scroll-snap-align:center;
+  flex-shrink:0;
 }
 
 .gallery::-webkit-scrollbar{
@@ -151,6 +137,7 @@ section{
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Take Your Pick ❤️</h1>
@@ -159,6 +146,7 @@ section{
   </div>
 </section>
 
+<!-- PIE -->
 <section id="pieSection">
 <h2>Choose Our Destination</h2>
 
@@ -179,24 +167,15 @@ section{
 <h2>Thailand 🇹🇭</h2>
 
 <div class="gallery">
-<img src="https://source.unsplash.com/featured/?phiphi,island">
-<img src="https://source.unsplash.com/featured/?phuket,beach">
-<img src="https://source.unsplash.com/featured/?thai,beach,sunset">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8">
+<img src="https://images.unsplash.com/photo-1528184039930-bd03972bd974">
 </div>
 
-<p><strong>Flights:</strong> ₹15K–₹25K India | ₹18K–₹30K Dubai</p>
+<p><strong>Perfect for:</strong> Beaches + Adventure + Night markets</p>
 
-<h3>Day 1 – Arrival & Beach Walk</h3>
-<p>Hotel check-in, relax together, sunset beach walk, seafood dinner.</p>
+<p>Sunset beach walks, island hopping, couple spa and romantic seaside dinners.</p>
 
-<h3>Day 2 – Phi Phi Island Tour</h3>
-<p>Boat tour, snorkeling, scenic photos and island lunch.</p>
-
-<h3>Day 3 – Spa & Exploring</h3>
-<p>Couple spa, café hopping, night market date.</p>
-
-<h3>Day 4 – Coffee & Departure</h3>
-<p>Beach coffee and souvenir shopping.</p>
 </div>
 </section>
 
@@ -206,24 +185,15 @@ section{
 <h2>Georgia 🇬🇪</h2>
 
 <div class="gallery">
-<img src="https://source.unsplash.com/featured/?tbilisi">
-<img src="https://source.unsplash.com/featured/?kazbegi,mountains">
-<img src="https://source.unsplash.com/featured/?georgia,wine">
+<img src="https://images.unsplash.com/photo-1608138403987-6b35c50a7611">
+<img src="https://images.unsplash.com/photo-1577086664693-894d8405334a">
+<img src="https://images.unsplash.com/photo-1600530995155-0a5b29e76e21">
 </div>
 
-<p><strong>Flights:</strong> ₹25K–₹35K India | ₹20K–₹30K Dubai</p>
+<p><strong>Perfect for:</strong> Mountains + European vibes + Wine tours</p>
 
-<h3>Day 1 – Old Town Romance</h3>
-<p>Cobblestone walks and fortress viewpoints.</p>
+<p>Old town romance, snowy mountains, wine tastings and cozy cafés.</p>
 
-<h3>Day 2 – Mountain Escape</h3>
-<p>Drive to Kazbegi mountains and scenic viewpoints.</p>
-
-<h3>Day 3 – Wine & Culture</h3>
-<p>Kakheti wine region and spa relaxation.</p>
-
-<h3>Day 4 – Café Date</h3>
-<p>European café breakfast before departure.</p>
 </div>
 </section>
 
@@ -233,24 +203,15 @@ section{
 <h2>Bali 🇮🇩</h2>
 
 <div class="gallery">
-<img src="https://source.unsplash.com/featured/?bali,beach">
-<img src="https://source.unsplash.com/featured/?ubud,jungle">
-<img src="https://source.unsplash.com/featured/?bali,villa,pool">
+<img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4">
+<img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
 </div>
 
-<p><strong>Flights:</strong> ₹25K–₹40K India | ₹20K–₹35K Dubai</p>
+<p><strong>Perfect for:</strong> Villas + Luxury romance + Nature</p>
 
-<h3>Day 1 – Villa Stay</h3>
-<p>Private villa, pool time and candlelight dinner.</p>
+<p>Private pool villas, jungle waterfalls, beach clubs and floating breakfasts.</p>
 
-<h3>Day 2 – Nusa Penida Island</h3>
-<p>Boat trip, cliffs, snorkeling and sunset beach club.</p>
-
-<h3>Day 3 – Ubud Exploration</h3>
-<p>Waterfalls, jungle swing and couple spa.</p>
-
-<h3>Day 4 – Floating Breakfast</h3>
-<p>Morning relaxation before departure.</p>
 </div>
 </section>
 
@@ -260,24 +221,15 @@ section{
 <h2>Vietnam 🇻🇳</h2>
 
 <div class="gallery">
-<img src="https://source.unsplash.com/featured/?halongbay">
-<img src="https://source.unsplash.com/featured/?hoian,lanterns">
-<img src="https://source.unsplash.com/featured/?vietnam,streetfood">
+<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe">
+<img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5">
+<img src="https://images.unsplash.com/photo-1528127269322-539801943592">
 </div>
 
-<p><strong>Flights:</strong> ₹20K–₹35K India | ₹18K–₹30K Dubai</p>
+<p><strong>Perfect for:</strong> Culture + Scenic cruises + Food exploration</p>
 
-<h3>Day 1 – Coffee Culture</h3>
-<p>Vietnamese café date and street food exploration.</p>
+<p>Ha Long Bay cruises, lantern nights and street food dates.</p>
 
-<h3>Day 2 – Ha Long Bay Cruise</h3>
-<p>Kayaking, caves and sunset cruise deck views.</p>
-
-<h3>Day 3 – Lantern Night</h3>
-<p>Hoi An river boat ride and lantern release.</p>
-
-<h3>Day 4 – Brunch & Departure</h3>
-<p>Relaxed brunch before airport transfer.</p>
 </div>
 </section>
 
@@ -287,24 +239,15 @@ section{
 <h2>Sri Lanka 🇱🇰</h2>
 
 <div class="gallery">
-<img src="https://source.unsplash.com/featured/?ella,train">
-<img src="https://source.unsplash.com/featured/?srilanka,tea">
-<img src="https://source.unsplash.com/featured/?srilanka,beach">
+<img src="https://images.unsplash.com/photo-1544739313-3baf0d87f58a">
+<img src="https://images.unsplash.com/photo-1555992336-03a23c6c3c4f">
+<img src="https://images.unsplash.com/photo-1570727062227-6e1e8c7a7f19">
 </div>
 
-<p><strong>Flights:</strong> ₹15K–₹25K India | ₹18K–₹30K Dubai</p>
+<p><strong>Perfect for:</strong> Scenic trains + Tea hills + Beaches</p>
 
-<h3>Day 1 – Beach Resort Stay</h3>
-<p>Bentota beach relaxation and seafood dinner.</p>
+<p>Train journeys, peaceful beaches and mountain hikes.</p>
 
-<h3>Day 2 – Scenic Train Ride</h3>
-<p>Ella train journey and Nine Arch Bridge photos.</p>
-
-<h3>Day 3 – Tea Hills Adventure</h3>
-<p>Tea plantation tours and Little Adam’s Peak hike.</p>
-
-<h3>Day 4 – Ocean Breakfast</h3>
-<p>Morning beach coffee before departure.</p>
 </div>
 </section>
 
@@ -314,24 +257,15 @@ section{
 <h2>Azerbaijan 🇦🇿</h2>
 
 <div class="gallery">
-<img src="https://source.unsplash.com/featured/?baku,city">
-<img src="https://source.unsplash.com/featured/?azerbaijan,mountains">
-<img src="https://source.unsplash.com/featured/?baku,oldcity">
+<img src="https://images.unsplash.com/photo-1596436889106-be35e843f974">
+<img src="https://images.unsplash.com/photo-1603105070188-4e7c50a62ddb">
+<img src="https://images.unsplash.com/photo-1616609478632-9e66f56c6c4a">
 </div>
 
-<p><strong>Flights:</strong> ₹25K–₹40K India | ₹20K–₹30K Dubai</p>
+<p><strong>Perfect for:</strong> European city romance + Mountains + Architecture</p>
 
-<h3>Day 1 – Baku Exploration</h3>
-<p>Old city walk and Caspian promenade sunset.</p>
+<p>Baku skyline walks, cable car rides and rooftop dinners.</p>
 
-<h3>Day 2 – Gabala Mountains</h3>
-<p>Cable car ride and countryside café.</p>
-
-<h3>Day 3 – Cultural Evening</h3>
-<p>Flame Towers and rooftop dinner.</p>
-
-<h3>Day 4 – Café Farewell</h3>
-<p>Relaxed breakfast before airport.</p>
 </div>
 </section>
 
